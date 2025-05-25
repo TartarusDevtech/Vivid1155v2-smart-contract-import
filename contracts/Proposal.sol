@@ -47,7 +47,7 @@ contract DAO is Ownable {
 
         for (uint i = 0; i < permissionOfApprove[_proposal.level].length; ++i) {
             if (_permission == permissionOfApprove[_proposal.level][i]) {
-                _proposal.level += 1;
+                _proposal.level = _proposal.level + 1;
                 return;
             }
         }
@@ -82,7 +82,7 @@ contract DAO is Ownable {
     ) public view returns (Proposal[] memory) {
         require(end <= _proposals.length, "Invalid Index");
         Proposal[] memory proposalSlice = new Proposal[](end - start);
-        for (uint256 i = start; i < end; i++) {
+        for (uint256 i = start; i < end; ++i) {
             proposalSlice[i] = _proposals[i];
         }
         return proposalSlice;
