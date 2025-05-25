@@ -45,7 +45,7 @@ contract DAO is Ownable {
             abi.encodePacked(_identity.department, "_", _identity.role)
         );
 
-        for (uint i = 0; i < permissionOfApprove[_proposal.level].length; i++) {
+        for (uint i = 0; i < permissionOfApprove[_proposal.level].length; ++i) {
             if (_permission == permissionOfApprove[_proposal.level][i]) {
                 _proposal.level += 1;
                 return;
@@ -61,7 +61,7 @@ contract DAO is Ownable {
             abi.encodePacked(_identity.department, "_", _identity.role)
         );
 
-        for (uint i = 0; i < permissionOfApprove[_proposal.level].length; i++) {
+        for (uint i = 0; i < permissionOfApprove[_proposal.level].length; ++i) {
             if (_permission == permissionOfApprove[_proposal.level][i]) {
                 _proposal.isRejected = true;
                 return;
